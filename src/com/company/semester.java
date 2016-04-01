@@ -105,4 +105,13 @@ public class semester {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    @Override
+    public String toString() {
+        return "semester{" +
+                "title='" + title + '\'' +
+                ", totalCredit=" + totalCredit +
+                ", semGrade=" + getSemGrade() +
+                '}';
+    }
 }

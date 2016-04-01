@@ -1,8 +1,17 @@
 package com.company;
 
+import java.util.TreeMap;
+
 /**
- * Created by Admin Banana on 3/30/2016.
+ * Created by Admin Banana on 4/1/2016.
  */
-public enum grade {
-    A, Bb, B, Cc, C, Dd, D, F
+public class grade {
+    private String sResult;
+    private float nResult;
+
+    TreeMap<Integer, String> gradeListMap = new TreeMap<Integer, String>();
+
+    public grade() {
+
+    }
 }
