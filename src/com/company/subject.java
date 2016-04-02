@@ -33,7 +33,7 @@ public class subject {
                 '}';
     }
 
-    public String getGrade() {
+    public gradeValue getGrade() {
         return grade.getsResult();
     }
 

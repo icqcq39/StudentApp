@@ -18,15 +18,6 @@ public class semester {
         setTotalCredit(0);
     }
 
-    private void coutCalcCredit(){
-        int sum=0;
-        for (subject sub:subjectList) {
-            if (sub.getGrade()=="S"||sub.getGrade()=="U"||sub.getGrade()=="W"){
-                sum += sub.getCredit();
-            }
-        }
-        semGrade.setCredit(getTotalCredit() - sum);
-    }
     public void addSubject(String name, String code, String section, int credit){
         subjectList.add(new subject(name,code,section,credit));
         addTotalCredit(credit);
@@ -57,25 +48,6 @@ public class semester {
         return subjectList.get(0);
     }
 
-    private void calcSemGrade(){
-        float sum = 0.0f;
-        for (subject s:subjectList) {
-            sum += gradeTrans(s.getGrade())*s.getCredit();
-        }
-        setSemGrade(sum/(float)totalCredit);
-    }
-
-    private float gradeTrans(String grade){
-        if (grade=="A") return 4.0f;
-        else if(grade=="B+") return 3.5f;
-        else if(grade=="B") return 3.0f;
-        else if(grade=="C+") return 2.5f;
-        else if(grade=="C") return 2.0f;
-        else if(grade=="D") return 1.0f;
-        else if(grade=="F") return 0.0f;
-        else return 1.f;
-    }
-
     public int getTotalCredit() {
         return totalCredit;
     }
@@ -97,14 +69,8 @@ public class semester {
         this.totalCredit -= credit;
     }
 
-    public float getSemGrade() {
-        calcSemGrade();
-        semGrade = ((int)(semGrade*100))/100f;
+    public numericGrade getSemGrade() {
         return semGrade;
-    }
-
-    public void setSemGrade(float semGrade) {
-        this.semGrade = semGrade;
     }
 
     public String getTitle() {

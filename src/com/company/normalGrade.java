@@ -4,7 +4,7 @@ package com.company;
  * Created by Admin Banana on 4/2/2016.
  */
 public class normalGrade extends grade {
-    private String sResult;
+    private gradeValue sResult;
     private int gradeRange [] = {0,50,55,60,65,70,75,80};
 
 
@@ -21,7 +21,7 @@ public class normalGrade extends grade {
 
 
     private void calcSResult(int score){
-        setsResult(gradeListMap.floorEntry(score).getValue().getsValue());
+        setsResult(gradeListMap.floorEntry(score).getValue());
     }
     public void setGradeRange(int A,int Bb,int B,int Cc,int C,int Dd,int D){
         gradeRange[7] = A;
@@ -33,11 +33,14 @@ public class normalGrade extends grade {
         gradeRange[1] = D;
     }
 
-    public String getsResult() {
+    public gradeValue getsResult() {
         return sResult;
     }
 
     public void setsResult(String sResult) {
-        this.sResult = sResult;
+        this.sResult.setsValue(sResult);
+    }
+    public void setsResult(gradeValue OResult) {
+        this.sResult = OResult;
     }
 }

@@ -12,10 +12,6 @@ public class gradeValue {
         setnValue(nValue);
     }
 
-    public float tranStoN(String s){
-
-    }
-
     public String getsValue() {
         return sValue;
     }

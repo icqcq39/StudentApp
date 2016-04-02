@@ -7,14 +7,17 @@ import java.util.List;
  */
 public class numericGrade extends grade{
     private float nResult;
-    private int credit;
 
     public void calcNResult(List<subject> subjectList){
+        float weightGrade = 0;
+        int credit = 0;
         for (subject sub:subjectList) {
-            if (!(sub.getGrade()=="S"||sub.getGrade()=="U"||sub.getGrade()=="W")){
-
+            if (!(sub.getGrade().getsValue()=="S"||sub.getGrade().getsValue()=="U"||sub.getGrade().getsValue()=="W")){
+                weightGrade += sub.getGrade().getnValue() * sub.getCredit();
+                credit += sub.getCredit();
             }
         }
+        setnResult(weightGrade/credit);
     }
     public float getnResult() {
         return nResult;
@@ -24,11 +27,4 @@ public class numericGrade extends grade{
         this.nResult = nResult;
     }
 
-    public int getCredit() {
-        return credit;
-    }
-
-    public void setCredit(int credit) {
-        this.credit = credit;
-    }
 }
