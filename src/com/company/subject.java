@@ -8,7 +8,7 @@ import java.util.TreeMap;
 public class subject {
     private String name, code, teacher, place, section;
     private int credit, score, midExam;
-    private normalGrade grade;
+    private normalGrade grade = new normalGrade();
 
     public subject(String name, String code, String section, int credit) {
         setName(name);
@@ -55,6 +55,7 @@ public class subject {
     }
 
     public void setScore(int score) {
+        grade.scoreUpdate(score);
         this.score = score;
     }
 

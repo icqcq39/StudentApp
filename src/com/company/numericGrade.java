@@ -10,25 +10,29 @@ public class numericGrade extends grade{
     private int semCredit;
 
     public void calcNResultSUB(List<subject> subjectList){
-        float weightGrade = 0;
-        semCredit = 0;
-        for (subject sub:subjectList) {
-            if (!(sub.getGrade().getsValue()=="S"||sub.getGrade().getsValue()=="U"||sub.getGrade().getsValue()=="W")){
-                weightGrade += sub.getGrade().getnValue() * sub.getCredit();
-                semCredit += sub.getCredit();
+        if (subjectList.size() != 0){
+            float weightGrade = 0;
+            semCredit = 0;
+            for (subject sub:subjectList) {
+                if (!(sub.getGrade().getsValue()=="S"||sub.getGrade().getsValue()=="U"||sub.getGrade().getsValue()=="W")){
+                    weightGrade += sub.getGrade().getnValue() * sub.getCredit();
+                    semCredit += sub.getCredit();
+                }
             }
+            setnResult(weightGrade/semCredit);
         }
-        setnResult(weightGrade/semCredit);
     }
 
     public void calcNResultSEM(List<semester> semesterList){
-        float weightGrade = 0;
-        semCredit = 0;
-        for (semester sem:semesterList) {
-            weightGrade += sem.getSemGrade().getnResult()*sem.getSemGrade().semCredit;
-            semCredit += sem.getSemGrade().getSemCredit();
+        if (semesterList.size() != 0) {
+            float weightGrade = 0;
+            semCredit = 0;
+            for (semester sem:semesterList) {
+                weightGrade += sem.getSemGrade().getnResult()*sem.getSemGrade().semCredit;
+                semCredit += sem.getSemGrade().getSemCredit();
+            }
+            setnResult(weightGrade/semCredit);
         }
-        setnResult(weightGrade/semCredit);
     }
 
     public int getSemCredit() {

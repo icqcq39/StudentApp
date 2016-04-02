@@ -9,8 +9,8 @@ import java.util.List;
 public class semester {
     private String title;
     private int totalCredit;
-    private numericGrade semGrade;
     private List<subject> subjectList = new ArrayList<subject>();
+    private numericGrade semGrade = new numericGrade();
 
 
     public semester(String title) {
@@ -88,7 +88,7 @@ public class semester {
         return "semester{" +
                 "title='" + title + '\'' +
                 ", totalCredit=" + totalCredit +
-                ", semGrade=" + getSemGrade() +
+                ", semGrade=" + getSemGrade().getnResult() +
                 '}';
     }
 }
