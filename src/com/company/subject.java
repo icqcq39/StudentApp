@@ -1,15 +1,14 @@
 package com.company;
 
-import java.util.StringJoiner;
 import java.util.TreeMap;
 
 /**
  * Created by Admin Banana on 3/30/2016.
  */
 public class subject {
-    private String name, code, teacher, place, section, grade;
+    private String name, code, teacher, place, section;
     private int credit, score, midExam;
-    private int A, Bb, B, Cc, C, D;
+    private normalGrade grade;
 
     public subject(String name, String code, String section, int credit) {
         setName(name);
@@ -18,8 +17,7 @@ public class subject {
         setCredit(credit);
         setScore(0);
         setMidExam(0);
-        setGradeList();
-        calcGrade();
+        grade.scoreUpdate(0);
     }
 
     @Override
@@ -35,33 +33,10 @@ public class subject {
                 '}';
     }
 
-    private void calcGrade(){
-        TreeMap<Integer, String> gradeMap = new TreeMap<Integer, String>();
-        gradeMap.put(0, "F");
-        gradeMap.put(D, "D");
-        gradeMap.put(C, "C");
-        gradeMap.put(Cc, "C+");
-        gradeMap.put(B, "B");
-        gradeMap.put(Bb, "B+");
-        gradeMap.put(A, "A");
-
-        setGrade(gradeMap.floorEntry(getScore()).getValue());
-    }
-
-    public void getGradeList(){
-        System.out.println("---------------");
-        System.out.printf("A  >= %d%nB+ >= %d%nB  >= %d%nC+ >= %d%nC  >= %d%nD  >= %d%nF  <  %d%n",A, Bb, B, Cc, C, D, D);
-        System.out.println("---------------");
-    }
-
     public String getGrade() {
-        calcGrade();
-        return grade;
+        return grade.getsResult();
     }
 
-    private void setGrade(String grade) {
-        this.grade = grade;
-    }
 
     public String getSection() {
         return section;
@@ -129,24 +104,6 @@ public class subject {
 
     public void setCredit(int credit) {
         this.credit = credit;
-    }
-
-    public void setGradeList(int A,int Bb,int B,int Cc,int C,int D){
-        this.A = A;
-        this.Bb = Bb;
-        this.B = B;
-        this.Cc = Cc;
-        this.C = C;
-        this.D = D;
-    }
-
-    public void setGradeList(){
-        this.A = 80;
-        this.Bb = 75;
-        this.B = 70;
-        this.Cc = 65;
-        this.C = 60;
-        this.D = 50;
     }
 
 }
