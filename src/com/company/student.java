@@ -1,6 +1,5 @@
 package com.company;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,13 +9,21 @@ import java.util.List;
 public class student {
     private String fullname, name, surname, faculty,scode;
     private int syear;
-    private float sGrade;
+    private numericGrade stuGrade;
     List<semester> semesterList = new ArrayList<>();
 
     public student(String fullname, String faculty, String scode) {
         setFullname(fullname);
         setFaculty(faculty);
         setScode(scode);
+    }
+
+    public void calcStuGrade(List<semester> semesters){
+        float sum = 0;
+        for (semester sem:semesters) {
+            sum += sem.getSemGrade().getnResult();
+        }
+
     }
 
     public semester getSemster(int index){
@@ -64,6 +71,15 @@ public class student {
         setName(fullname.substring(0,fullname.indexOf(' ')).toUpperCase());
         setSurname(fullname.substring(fullname.indexOf(' ')+1).toUpperCase().trim());
         this.fullname = getName() + " " + getSurname();
+    }
+
+    public numericGrade getStuGrade() {
+        stuGrade.calcNResultSEM(semesterList);
+        return stuGrade;
+    }
+
+    public void setStuGrade(numericGrade stuGrade) {
+        this.stuGrade = stuGrade;
     }
 
     public String getName() {

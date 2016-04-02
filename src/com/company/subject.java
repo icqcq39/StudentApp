@@ -28,7 +28,7 @@ public class subject {
                 ", teacher='" + teacher + '\'' +
                 ", place='" + place + '\'' +
                 ", section='" + section + '\'' +
-                ", grade='" + getGrade() + '\'' +
+                ", grade='" + getGrade().getsValue() + '\'' +
                 ", credit=" + credit +
                 '}';
     }

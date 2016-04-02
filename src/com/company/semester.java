@@ -48,6 +48,7 @@ public class semester {
         return subjectList.get(0);
     }
 
+
     public int getTotalCredit() {
         return totalCredit;
     }
@@ -70,6 +71,7 @@ public class semester {
     }
 
     public numericGrade getSemGrade() {
+        semGrade.calcNResultSUB(subjectList);
         return semGrade;
     }
 
