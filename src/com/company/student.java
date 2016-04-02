@@ -18,14 +18,6 @@ public class student {
         setScode(scode);
     }
 
-    public void calcStuGrade(List<semester> semesters){
-        float sum = 0;
-        for (semester sem:semesters) {
-            sum += sem.getSemGrade().getnResult();
-        }
-
-    }
-
     public semester getSemster(int index){
         return  semesterList.get(index);
     }
