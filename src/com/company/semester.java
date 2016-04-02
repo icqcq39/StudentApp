@@ -9,7 +9,7 @@ import java.util.List;
 public class semester {
     private String title;
     private int totalCredit;
-    private float semGrade;
+    private numericGrade semGrade;
     private List<subject> subjectList = new ArrayList<subject>();
 
 
@@ -18,6 +18,15 @@ public class semester {
         setTotalCredit(0);
     }
 
+    private void coutCalcCredit(){
+        int sum=0;
+        for (subject sub:subjectList) {
+            if (sub.getGrade()=="S"||sub.getGrade()=="U"||sub.getGrade()=="W"){
+                sum += sub.getCredit();
+            }
+        }
+        semGrade.setCredit(getTotalCredit() - sum);
+    }
     public void addSubject(String name, String code, String section, int credit){
         subjectList.add(new subject(name,code,section,credit));
         addTotalCredit(credit);
